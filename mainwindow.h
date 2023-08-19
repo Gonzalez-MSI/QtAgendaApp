@@ -2,6 +2,8 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include <QDebug>
+#include <QtCore>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -15,7 +17,16 @@ public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 
+private slots:
+    void on_SaveButton_clicked();
+
+
+
+    void on_actionExit_Alt_F4_triggered();
+
 private:
     Ui::MainWindow *ui;
 };
+
+
 #endif // MAINWINDOW_H
