@@ -56,6 +56,13 @@ void MainWindow::on_SaveButton_clicked(){
 
     member_counter += 1;
     AdjustTableSize(&member_counter);
+    PopulateContactsTable(
+        &member_counter,
+        &contact_name,
+        &contact_gender,
+        &contact_age,
+        &contact_phone
+    );
     ui->tableWidget->setHidden(false);
 }
 
@@ -64,14 +71,30 @@ void MainWindow::AdjustTableSize(int *counter){
     ui->tableWidget->setRowCount(*counter);
 }
 
+void MainWindow::PopulateContactsTable(int *counter, QString *name, QString *gender, int *age, QString *phone){
+
+    ui->tableWidget->setItem(*counter - 1, 0, new QTableWidgetItem(*name));
+    ui->tableWidget->setItem(*counter - 1, 1, new QTableWidgetItem(*gender));
+    ui->tableWidget->setItem(*counter - 1, 2, new QTableWidgetItem(QString::number(*age)));
+    ui->tableWidget->setItem(*counter - 1, 3, new QTableWidgetItem(*phone));
+}
+
+void MainWindow::on_CancelButton_clicked()
+{
+    ui->groupBoxMenu->setHidden(true);
+}
+
+
 void MainWindow::on_actionExit_Alt_F4_triggered()
 {
     QApplication::quit();
 }
 
 
-void MainWindow::on_CancelButton_clicked()
+
+
+void MainWindow::on_AddButton_clicked()
 {
-    ui->groupBoxMenu->setHidden(true);
+    ui->tableWidget->setHidden(true);
 }
 

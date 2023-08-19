@@ -19,17 +19,21 @@ public:
     ~MainWindow();
 
 private slots:
+
     void on_SaveButton_clicked();
 
     void on_actionExit_Alt_F4_triggered();
 
     void AdjustTableSize(int*);
 
+    void PopulateContactsTable(int*, QString*, QString*, int*, QString*);
+
     void on_CancelButton_clicked();
+
+    void on_AddButton_clicked();
 
 private:
     Ui::MainWindow *ui;
 };
-
 
 #endif // MAINWINDOW_H
