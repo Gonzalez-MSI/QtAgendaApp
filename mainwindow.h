@@ -4,6 +4,7 @@
 #include <QMainWindow>
 #include <QDebug>
 #include <QtCore>
+#include <QString>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -20,9 +21,11 @@ public:
 private slots:
     void on_SaveButton_clicked();
 
-
-
     void on_actionExit_Alt_F4_triggered();
+
+    void AdjustTableSize(int*);
+
+    void on_CancelButton_clicked();
 
 private:
     Ui::MainWindow *ui;
