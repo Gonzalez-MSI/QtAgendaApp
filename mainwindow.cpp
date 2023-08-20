@@ -13,6 +13,7 @@ MainWindow::MainWindow(QWidget *parent)
     ui->tableWidget->setHorizontalHeaderItem(1, new QTableWidgetItem("Gender"));
     ui->tableWidget->setHorizontalHeaderItem(2, new QTableWidgetItem("Age"));
     ui->tableWidget->setHorizontalHeaderItem(3, new QTableWidgetItem("Phone"));
+    ui->ContactsCounterLabel->setText(QString::number(0));
 }
 
 MainWindow::~MainWindow()
@@ -28,11 +29,7 @@ void MainWindow::on_SaveButton_clicked(){
     QString contact_gender;
     int contact_age = ui->AgespinBox->value();
 
-    QString *string_checker = new QString(contact_name.trimmed());
-    if(string_checker->isEmpty()){
-        contact_name = "Unnamed";
-    }
-    delete string_checker;
+    NullNameChecker(&contact_name);
 
     if(!(ui->GMaleButton->isChecked()) && !(ui->GFemaleButton->isChecked())){
         contact_gender = "Not especified";
@@ -63,7 +60,11 @@ void MainWindow::on_SaveButton_clicked(){
         &contact_age,
         &contact_phone
     );
+
+    ui->AgespinBox->setValue(0);
+    ui->ContactsCounterLabel->setText(QString::number(member_counter));
     ui->tableWidget->setHidden(false);
+
 }
 
 void MainWindow::AdjustTableSize(int *counter){
@@ -79,22 +80,27 @@ void MainWindow::PopulateContactsTable(int *counter, QString *name, QString *gen
     ui->tableWidget->setItem(*counter - 1, 3, new QTableWidgetItem(*phone));
 }
 
+void MainWindow::NullNameChecker(QString *name){
+
+    QString *string_checker = new QString((*name).trimmed());
+    if(string_checker->isEmpty()){
+        *name = "Unnamed";
+    }
+    delete string_checker;
+}
+
 void MainWindow::on_CancelButton_clicked()
 {
     ui->groupBoxMenu->setHidden(true);
 }
 
+void MainWindow::on_AddButton_clicked()
+{
+    ui->tableWidget->setHidden(true);
+}
 
 void MainWindow::on_actionExit_Alt_F4_triggered()
 {
     QApplication::quit();
-}
-
-
-
-
-void MainWindow::on_AddButton_clicked()
-{
-    ui->tableWidget->setHidden(true);
 }
 

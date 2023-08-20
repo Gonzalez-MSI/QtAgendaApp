@@ -24,13 +24,15 @@ private slots:
 
     void on_actionExit_Alt_F4_triggered();
 
-    void AdjustTableSize(int*);
-
-    void PopulateContactsTable(int*, QString*, QString*, int*, QString*);
-
     void on_CancelButton_clicked();
 
     void on_AddButton_clicked();
+
+    void NullNameChecker(QString*);
+
+    void AdjustTableSize(int*);
+
+    void PopulateContactsTable(int*, QString*, QString*, int*, QString*);
 
 private:
     Ui::MainWindow *ui;

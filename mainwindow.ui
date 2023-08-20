@@ -221,7 +221,7 @@
         </property>
         <property name="font">
          <font>
-          <bold>true</bold>
+          <bold>false</bold>
          </font>
         </property>
         <property name="text">
@@ -252,7 +252,7 @@
         </property>
         <property name="font">
          <font>
-          <bold>true</bold>
+          <bold>false</bold>
          </font>
         </property>
         <property name="text">
@@ -270,7 +270,7 @@
         </property>
         <property name="font">
          <font>
-          <bold>true</bold>
+          <bold>false</bold>
          </font>
         </property>
         <property name="text">
@@ -405,6 +405,49 @@
       </widget>
      </widget>
     </widget>
+   </widget>
+   <widget class="QLabel" name="CurrentContactsLabel">
+    <property name="geometry">
+     <rect>
+      <x>240</x>
+      <y>380</y>
+      <width>101</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::NoFrame</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Sunken</enum>
+    </property>
+    <property name="text">
+     <string>Current contacts:</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="ContactsCounterLabel">
+    <property name="geometry">
+     <rect>
+      <x>342</x>
+      <y>381</y>
+      <width>31</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::NoFrame</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Plain</enum>
+    </property>
+    <property name="text">
+     <string>0</string>
+    </property>
    </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
