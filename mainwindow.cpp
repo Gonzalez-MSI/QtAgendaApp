@@ -8,12 +8,8 @@ MainWindow::MainWindow(QWidget *parent)
     ui->setupUi(this);
     ui->groupBoxMenu->setHidden(true);
     ui->tableWidget->setHidden(true);
-    ui->tableWidget->setColumnCount(4);
-    ui->tableWidget->setHorizontalHeaderItem(0, new QTableWidgetItem("Name"));
-    ui->tableWidget->setHorizontalHeaderItem(1, new QTableWidgetItem("Gender"));
-    ui->tableWidget->setHorizontalHeaderItem(2, new QTableWidgetItem("Age"));
-    ui->tableWidget->setHorizontalHeaderItem(3, new QTableWidgetItem("Phone"));
     ui->ContactsCounterLabel->setText(QString::number(0));
+    SetUpContactsTable();
 }
 
 MainWindow::~MainWindow()
@@ -44,13 +40,6 @@ void MainWindow::on_SaveButton_clicked(){
         contact_gender = "Female";
     }
 
-    qInfo() << "------------------------------";
-    qInfo() << "Hello" << contact_name;
-    qInfo() << "Gender: " << contact_gender;
-    qInfo() << "Age: " << contact_age;
-    qInfo() << "Phone number: " << contact_phone;
-    qInfo() << "------------------------------" << "\n";
-
     member_counter += 1;
     AdjustTableSize(&member_counter);
     PopulateContactsTable(
@@ -64,7 +53,15 @@ void MainWindow::on_SaveButton_clicked(){
     ui->AgespinBox->setValue(0);
     ui->ContactsCounterLabel->setText(QString::number(member_counter));
     ui->tableWidget->setHidden(false);
+}
 
+void MainWindow::SetUpContactsTable(){
+
+    ui->tableWidget->setColumnCount(4);
+    ui->tableWidget->setHorizontalHeaderItem(0, new QTableWidgetItem("Name"));
+    ui->tableWidget->setHorizontalHeaderItem(1, new QTableWidgetItem("Gender"));
+    ui->tableWidget->setHorizontalHeaderItem(2, new QTableWidgetItem("Age"));
+    ui->tableWidget->setHorizontalHeaderItem(3, new QTableWidgetItem("Phone"));
 }
 
 void MainWindow::AdjustTableSize(int *counter){

@@ -206,6 +206,9 @@
         <property name="maxLength">
          <number>10</number>
         </property>
+        <property name="echoMode">
+         <enum>QLineEdit::Normal</enum>
+        </property>
         <property name="placeholderText">
          <string>Enter phone's number</string>
         </property>
@@ -456,7 +459,7 @@
      <x>0</x>
      <y>0</y>
      <width>805</width>
-     <height>22</height>
+     <height>17</height>
     </rect>
    </property>
    <property name="autoFillBackground">
@@ -487,9 +490,7 @@
    </property>
   </action>
  </widget>
- <resources>
-  <include location="../../QtImages/QtLogos.qrc"/>
- </resources>
+ <resources/>
  <connections>
   <connection>
    <sender>ExitButton</sender>
@@ -584,6 +585,22 @@
     <hint type="destinationlabel">
      <x>388</x>
      <y>234</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>CancelButton</sender>
+   <signal>clicked()</signal>
+   <receiver>groupBoxMenu</receiver>
+   <slot>hide()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>538</x>
+     <y>329</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>511</x>
+     <y>223</y>
     </hint>
    </hints>
   </connection>

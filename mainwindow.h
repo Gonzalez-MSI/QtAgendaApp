@@ -2,9 +2,10 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include <QFileDialog>
+#include <QString>
 #include <QDebug>
 #include <QtCore>
-#include <QString>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -29,6 +30,8 @@ private slots:
     void on_AddButton_clicked();
 
     void NullNameChecker(QString*);
+
+    void SetUpContactsTable();
 
     void AdjustTableSize(int*);
 
